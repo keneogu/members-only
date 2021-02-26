@@ -17,8 +17,6 @@
 - `cd` into the project
 - `git checkout -b member-feature`
 - `bundle install`
-- Setup your `db` in the `database.yml` file
-- Run `rails db:create db:migrate`
 - Run `rails s`
 - Visit `localhost:3000`
 
