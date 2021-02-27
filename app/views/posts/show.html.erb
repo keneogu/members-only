@@ -1,9 +1,7 @@
 
 <p>
   <strong>Post:</strong>
-  <% if user_signed_in? %>
-  <%= @post.user.name %>
-  <% end %>
+  <%= show_name %>
   <%= @post.title %>
   <%= @post.post %>
 </p>

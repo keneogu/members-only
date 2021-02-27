@@ -17,6 +17,7 @@
 - `cd` into the project
 - `git checkout -b member-feature`
 - `bundle install`
+- `rails db:migrate`
 - Run `rails s`
 - Visit `localhost:3000`
 

@@ -4,9 +4,7 @@
 <table>
   <thead>
     <tr>
-    <% if user_signed_in? %>
-      <th>Name</th>
-    <% end %>
+      <th><%= user_name_th %></th>
       <th>Title</th>
       <th>Post</th>
       <th colspan="3"></th>
@@ -16,18 +14,12 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-      <% if user_signed_in? %>
-        <td><%= post.user.name %></td>
-        <% end %>
-        <td><%= post.title %></td>
+        <td><%= user_name_td(post) %></td>
+        <td><%= link_to post.title, post_path(post) %></td>
         <td><%= post.post %></td>
-
-        <% if user_signed_in? %>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% else %>
-        <td><%= link_to 'Show', post %></td>
-        <% end %>
+        <td><%= index_links(post, 'edit') %></td>
+        <td><%= index_links(post, 'destroy') %></td>
+        <td><%= index_links(post, 'show' )%></td>
       </tr>
     <% end %>
   </tbody>
@@ -35,6 +27,5 @@
 
 <br>
 
-<% if user_signed_in? %>
-<%= link_to 'New Post', new_post_path %>
-<% end %>
+<%= new_post_link %>
+
