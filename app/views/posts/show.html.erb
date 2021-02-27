@@ -6,5 +6,6 @@
   <%= @post.post %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= index_links(@post, 'edit') %>
+<br/>
 <%= link_to 'Back', posts_path %>

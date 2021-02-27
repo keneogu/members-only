@@ -24,7 +24,8 @@ module PostsHelper
   end
 
   def index_links(post, job)
-    return unless user_signed_in?
+
+    return unless user_signed_in? && post.user_id == current_user.id
 
     case job
     when 'edit'
