@@ -23,20 +23,18 @@ module PostsHelper
     post.user.name if user_signed_in?
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
-  # rubocop:disable Metrics/PerceivedComplexity
   def index_links(post, job)
-    if user_signed_in? && job == 'edit'
+    return unless user_signed_in?
+
+    case job
+    when 'edit'
       link_to 'Edit', edit_post_path(post)
-    elsif user_signed_in? && job == 'destroy'
+    when 'destroy'
       link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
-    elsif !user_signed_in? && job == 'show'
+    else
       link_to 'Show', post
     end
   end
-
-  # rubocop:enable Metrics/CyclomaticComplexity
-  # rubocop:enable Metrics/PerceivedComplexity
 
   def new_post_link
     link_to 'New Post', new_post_path if user_signed_in?
