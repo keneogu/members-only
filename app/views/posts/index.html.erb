@@ -1,0 +1,31 @@
+
+<h1>Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= user_name_th %></th>
+      <th>Title</th>
+      <th>Post</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= user_name_td(post) %></td>
+        <td><%= link_to post.title, post_path(post) %></td>
+        <td><%= post.post %></td>
+        <td><%= index_links(post, 'edit') %></td>
+        <td><%= index_links(post, 'destroy') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= new_post_link %>
+
+

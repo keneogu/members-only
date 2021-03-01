@@ -1,0 +1,11 @@
+
+<p>
+  <strong>Post:</strong>
+  <%= show_name %>
+  <%= @post.title %>
+  <%= @post.post %>
+</p>
+
+<%= index_links(@post, 'edit') %>
+<br/>
+<%= link_to 'Back', posts_path %>
